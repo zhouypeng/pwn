@@ -6,17 +6,25 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://pwn.zyp0422.mom">
-  <title>Category: pwn | zhou</title>
+  <title>pwn-gdb-pwndbg和pwngdb联合使用 | zhou</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta property="og:type" content="website">
-<meta property="og:title" content="zhou">
-<meta property="og:url" content="https://pwn.zyp0422.mom/categories/pwn/index.html">
+  <meta name="description" content="gdb安装">
+<meta property="og:type" content="article">
+<meta property="og:title" content="pwn-gdb-pwndbg和pwngdb联合使用">
+<meta property="og:url" content="https://pwn.zyp0422.mom/pwn-gdb-pwndbg%E5%92%8Cpwngdb%E8%81%94%E5%90%88%E4%BD%BF%E7%94%A8/index.html">
 <meta property="og:site_name" content="zhou">
+<meta property="og:description" content="gdb安装">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://pwn.zyp0422.mom/pwn-gdb-pwndbg%E5%92%8Cpwngdb%E8%81%94%E5%90%88%E4%BD%BF%E7%94%A8/1.png">
+<meta property="og:image" content="https://pwn.zyp0422.mom/pwn-gdb-pwndbg%E5%92%8Cpwngdb%E8%81%94%E5%90%88%E4%BD%BF%E7%94%A8/2.png">
+<meta property="article:published_time" content="2024-09-04T14:45:54.000Z">
+<meta property="article:modified_time" content="2024-09-04T15:21:12.197Z">
 <meta property="article:author" content="zhoupeng">
+<meta property="article:tag" content="pwn">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://pwn.zyp0422.mom/pwn-gdb-pwndbg%E5%92%8Cpwngdb%E8%81%94%E5%90%88%E4%BD%BF%E7%94%A8/1.png">
   
     <link rel="alternative" href="/atom.xml" title="zhou" type="application/atom+xml">
   
@@ -326,149 +334,142 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-pwn-gdb-pwndbg和pwngdb联合使用" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2024" class="archive-year">2024</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/pwn-%E5%A0%86%E6%BA%A2%E5%87%BA/" class="archive-article-date">
-        <time datetime="2024-09-28T04:27:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-09-28</time>
-</a>
-
-        </div>
-    	 
+      <header class="article-header">
   
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/pwn-%E5%A0%86%E6%BA%A2%E5%87%BA/" target="_blank">pwn-堆溢出</a>
   
+    <h1 class="article-title" itemprop="name">
+      pwn-gdb-pwndbg和pwngdb联合使用
     </h1>
   
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">pwn</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/pwn//" class="article-tag-list-link color4">pwn</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/pwn-%E6%A0%88%E8%BF%81%E7%A7%BB/" class="archive-article-date">
-        <time datetime="2024-09-27T06:26:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-09-27</time>
-</a>
-
-        </div>
-    	 
   
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/pwn-%E6%A0%88%E8%BF%81%E7%A7%BB/" target="_blank">pwn-栈迁移</a>
-  
-    </h1>
-  
+        
+        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
+              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
+        </span>
 
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">pwn</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/pwn//" class="article-tag-list-link color4">pwn</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
 <a href="/pwn-gdb-pwndbg%E5%92%8Cpwngdb%E8%81%94%E5%90%88%E4%BD%BF%E7%94%A8/" class="archive-article-date">
         <time datetime="2024-09-04T14:45:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-09-04</time>
 </a>
 
-        </div>
-    	 
   
-    <h1 itemprop="name">
+  
+    
+<div style="margin-top:10px;">
+  <span class="post-time">
+    <span class="post-meta-item-icon">
+      <!-- fonts.scss -->
+      <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
+      <i class="icon-statistics"></i>
+      <span class="post-meta-item-text"> 字数统计:</span>
+      <span class="post-count">589字</span>
+    </span>
+  </span>
+
+  <span class="post-time">
+    &nbsp; | &nbsp;
+    <span class="post-meta-item-icon">
+      <i class="icon-book icon"></i>
+      <span class="post-meta-item-text"> 阅读时长≈</span>
+      <span class="post-count">2分</span>
+    </span>
+  </span>
+</div>
+
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+ 
+
 	
-	  <a class="archive-article-title" href="/pwn-gdb-pwndbg%E5%92%8Cpwngdb%E8%81%94%E5%90%88%E4%BD%BF%E7%94%A8/" target="_blank">pwn-gdb-pwndbg和pwngdb联合使用</a>
-  
-    </h1>
-  
+		<h3 id="gdb安装"><a href="#gdb安装" class="headerlink" title="gdb安装"></a>gdb安装<span id="more"></span></h3><p>没什么好说的，直接使用下面的命令安装即可</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">apt</span> <span class="selector-tag">install</span> <span class="selector-tag">gdb</span></span><br></pre></td></tr></table></figure>
+
+<p>安装成功后还会自带一个checksec，这个可以用来查询二进制文件栈保护是否开启，以及其是否开启了PIE或者canary等保护</p>
+<h3 id="pwndbg安装"><a href="#pwndbg安装" class="headerlink" title="pwndbg安装"></a>pwndbg安装</h3><p>注：如果已经安装过了pwndbg就不需要再安装了，只需要确定里面的gdbinit.py文件位置就可以，后续需要用到</p>
+<p>操作全在root目录下进行</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">git</span> <span class="selector-tag">clone</span> <span class="selector-tag">https</span>:<span class="comment">//github.com/pwndbg/pwndbg</span></span><br><span class="line"></span><br><span class="line"><span class="selector-tag">cd</span> <span class="selector-tag">pwndbg</span></span><br><span class="line"></span><br><span class="line">./<span class="selector-tag">setup</span><span class="selector-class">.sh</span></span><br></pre></td></tr></table></figure>
+
+<p>这时候就部署好了pwndbg，注意这时候会在root目录下自动生成一个文件~&#x2F;.gdbinit</p>
+<p>我们可以查看一下这个文件，这个文件内容如下</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">source</span> /<span class="selector-tag">root</span>/<span class="selector-tag">pwndbg</span>/<span class="selector-tag">gdbinit</span><span class="selector-class">.py</span></span><br></pre></td></tr></table></figure>
+
+<p>记住这个内容，后面联合pwngdb使用时是需要这个内容的，这个内容就是指向你安装pwndbg文件中的gdbinit.py文件，这样你启动gdb调试的时候才会引用pwndbg这个插件</p>
+<p>注：.gdbinit.py文件在终端中是不可见的</p>
+<h3 id="pwngdb安装"><a href="#pwngdb安装" class="headerlink" title="pwngdb安装"></a>pwngdb安装</h3><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">git</span> <span class="selector-tag">clone</span> <span class="selector-tag">https</span>:<span class="comment">//github.com/scwuaptx/Pwngdb.git</span></span><br></pre></td></tr></table></figure>
+
+<p>这里其实以及够了，不需要再cp什么的了，因为在安装pwndbg插件的时候已经在根目录下生成了.gdbinit文件，如果再跟网上其他文章操作的话，会将原本生成的文件覆盖，这时候如果你之前已经安装了pwndbg插件了，那地址就不一样了，这会导致你使用gdb时无法执行你的pwndbg，便也就无法使用pwndbg了</p>
+<h3 id="pwngdb和pwndbg联合使用"><a href="#pwngdb和pwndbg联合使用" class="headerlink" title="pwngdb和pwndbg联合使用"></a>pwngdb和pwndbg联合使用</h3><p>完成上面安装后，就只剩下该我们根目录下生成的gdbinit.py文件内容即可</p>
+<p>将内容改成下面内容即可（如果完全按照上面操作安装的直接改就行，不是的话就要改，见注释）</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"> # 改成你安装<span class="selector-tag">pwndbg</span>文件目录下<span class="selector-tag">gdbinit</span><span class="selector-class">.py</span>、<span class="selector-tag">Pwngdb</span>文件下<span class="selector-tag">pwngdb</span><span class="selector-class">.py</span>和<span class="selector-tag">angelheap</span>/<span class="selector-tag">gdbinit</span><span class="selector-class">.py</span>的位置（路径）</span><br><span class="line"><span class="selector-tag">source</span> /<span class="selector-tag">root</span>/<span class="selector-tag">pwndbg</span>/<span class="selector-tag">gdbinit</span><span class="selector-class">.py</span></span><br><span class="line"><span class="selector-tag">source</span> ~/<span class="selector-tag">Pwngdb</span>/<span class="selector-tag">pwngdb</span><span class="selector-class">.py</span></span><br><span class="line"><span class="selector-tag">source</span> ~/<span class="selector-tag">Pwngdb</span>/<span class="selector-tag">angelheap</span>/<span class="selector-tag">gdbinit</span><span class="selector-class">.py</span></span><br><span class="line"></span><br><span class="line"><span class="selector-tag">define</span> <span class="selector-tag">hook-run</span></span><br><span class="line"><span class="selector-tag">python</span></span><br><span class="line"><span class="selector-tag">import</span> <span class="selector-tag">angelheap</span></span><br><span class="line"><span class="selector-tag">angelheap</span><span class="selector-class">.init_angelheap</span>()</span><br><span class="line"><span class="selector-tag">end</span></span><br><span class="line"><span class="selector-tag">end</span></span><br></pre></td></tr></table></figure>
+
+<p>到此，pwndbg和pwngdb就安装完了，可以通过下面的测试是否安装成功</p>
+<p>启动gdb输入chunkinfo，如果是下图显示就表示安装成功，如果显示not commonds就是没有安装成功</p>
+<p><img src="/pwn-gdb-pwndbg%E5%92%8Cpwngdb%E8%81%94%E5%90%88%E4%BD%BF%E7%94%A8/1.png"></p>
+<p>或者进入gdb后双击tab，出现下面图片这么多指令也表示安装成功</p>
+<p><img src="/pwn-gdb-pwndbg%E5%92%8Cpwngdb%E8%81%94%E5%90%88%E4%BD%BF%E7%94%A8/2.png"></p>
+
+	
 
 
-        <div class="article-info info-on-right">
+
+    
+    <div class="page-reward">
+      <a href="javascript:void(0);" class="page-reward-btn tooltip-top" target="_self">
+        <div class="tooltip tooltip-east">
+          <span class="tooltip-item">
+            赏
+          </span>
+          <span class="tooltip-content">
+            <span class="tooltip-text">
+              <span class="tooltip-inner">
+                <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i
+                    class="icon icon-quo-right"></i></p>
+                <div class="reward-box">
+                  
+                  
+                </div>
+              </span>
+            </span>
+          </span>
+        </div>
+      </a>
+    </div>
+    
+
+    
+    <div class="declare"> 
+      <ul class="post-copyright">
+        <li>
+          <strong>本文作者：</strong>
+          zhoupeng
+        </li>
+        <li>
+          <strong>本文链接：</strong>
+          <a href="https://pwn.zyp0422.mom/pwn-gdb-pwndbg和pwngdb联合使用/" title="pwn-gdb-pwndbg和pwngdb联合使用" target="_blank">https://pwn.zyp0422.mom/pwn-gdb-pwndbg和pwngdb联合使用/</a>
+        </li>
+        
+        <li>
+          <strong>版权声明： </strong>
           
+          本博客所有文章除特别声明外，均采用 <a href="https://github.com/JoeyBling/hexo-theme-yilia-plus/blob/master/LICENSE" rel="external nofollow" target="_blank">MIT</a> 许可协议。转载请注明出处！
+        </li>
+        
+      </ul>
+    </div>
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -480,7 +481,7 @@
 		</ul>
 	</div>
 
-          
+    
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -493,341 +494,134 @@
 	</div>
 
 
+    
+
+    
+    
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <!-- <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a> -->
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=https://pwn.zyp0422.mom/pwn-gdb-pwndbg%E5%92%8Cpwngdb%E8%81%94%E5%90%88%E4%BD%BF%E7%94%A8/" alt="微信分享二维码"> -->
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+
+    
+    <div class="clearfix"></div>
+  </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/pwn-%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%AD%97%E7%AC%A6%E4%B8%B2/" class="archive-article-date">
-        <time datetime="2024-09-04T14:43:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-09-04</time>
-</a>
 
+
+<nav id="article-nav">
+  
+    <a href="/pwn-%E6%A0%88%E8%BF%81%E7%A7%BB/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          pwn-栈迁移
+        
+      </div>
+    </a>
+  
+  
+    <a href="/pwn-%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%AD%97%E7%AC%A6%E4%B8%B2/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">pwn-格式化字符串</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/pwn-%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%AD%97%E7%AC%A6%E4%B8%B2/" target="_blank">pwn-格式化字符串</a>
-  
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">pwn</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/pwn//" class="article-tag-list-link color4">pwn</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#gdb%E5%AE%89%E8%A3%85"><span class="toc-number">1.</span> <span class="toc-text">gdb安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#pwndbg%E5%AE%89%E8%A3%85"><span class="toc-number">2.</span> <span class="toc-text">pwndbg安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#pwngdb%E5%AE%89%E8%A3%85"><span class="toc-number">3.</span> <span class="toc-text">pwngdb安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#pwngdb%E5%92%8Cpwndbg%E8%81%94%E5%90%88%E4%BD%BF%E7%94%A8"><span class="toc-number">4.</span> <span class="toc-text">pwngdb和pwndbg联合使用</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/pwn-ret2csu/" class="archive-article-date">
-        <time datetime="2024-08-27T11:01:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-08-27</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/pwn-ret2csu/" target="_blank">pwn-ret2csu</a>
-  
-    </h1>
-  
+        
+    </div>
+</aside>
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">pwn</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/pwn//" class="article-tag-list-link color4">pwn</a>
-        		</li>
-      		
-		</ul>
-	</div>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/pwn%E6%A0%88%E6%BA%A2%E5%87%BA-ret2shellcode/" class="archive-article-date">
-        <time datetime="2024-07-22T02:59:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-07-22</time>
-</a>
 
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/pwn%E6%A0%88%E6%BA%A2%E5%87%BA-ret2shellcode/" target="_blank">pwn栈溢出-ret2shellcode</a>
-  
-    </h1>
-  
+<div id="SOHUCS" sid="pwn-gdb-pwndbg和pwngdb联合使用" ></div> 
+<script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
+<script type="text/javascript">
+    window.changyan.api.config({
+        appid: "cyxqVIfAY",
+        conf: "3d1d672de8790c6875f19d013bc4ff6f"
+    });
+</script>
+</script>
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">pwn</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/pwn//" class="article-tag-list-link color4">pwn</a>
-        		</li>
-      		
-		</ul>
-	</div>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/pwn%E6%A0%88%E6%BA%A2%E5%87%BA-ret2syscall/" class="archive-article-date">
-        <time datetime="2024-07-19T03:14:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-07-19</time>
-</a>
 
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/pwn%E6%A0%88%E6%BA%A2%E5%87%BA-ret2syscall/" target="_blank">pwn栈溢出---ret2syscall</a>
-  
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">pwn</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/pwn//" class="article-tag-list-link color4">pwn</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/pwn%E6%A0%88%E6%BA%A2%E5%87%BA-ret2libc/" class="archive-article-date">
-        <time datetime="2024-07-17T03:52:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-07-17</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/pwn%E6%A0%88%E6%BA%A2%E5%87%BA-ret2libc/" target="_blank">pwn栈溢出---ret2libc</a>
-  
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">pwn</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/pwn//" class="article-tag-list-link color4">pwn</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/pwn%E6%A0%88%E6%BA%A2%E5%87%BA%E5%85%A5%E9%97%A8%E7%AF%87/" class="archive-article-date">
-        <time datetime="2024-07-16T03:49:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-07-16</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/pwn%E6%A0%88%E6%BA%A2%E5%87%BA%E5%85%A5%E9%97%A8%E7%AF%87/" target="_blank">pwn栈溢出入门篇</a>
-  
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">pwn</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/pwn//" class="article-tag-list-link color4">pwn</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
 
@@ -870,10 +664,10 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
-		isCategory: true,
+		isCategory: false,
 		open_in_new: true,
 		toc_hide_index: true,
 		root: "/",

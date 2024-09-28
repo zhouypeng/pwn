@@ -10,16 +10,34 @@
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta property="og:type" content="article">
+  <meta name="description" content="堆溢出入门0X1–基础知识堆概述堆（Heap）是虚拟地址空间的一块连续的线性区域，提供动态分配的内存，允许程序申请大小未知的内存，它在用户与操作系统之间，作为动态内存管理的中间人。">
+<meta property="og:type" content="article">
 <meta property="og:title" content="pwn-堆溢出">
 <meta property="og:url" content="https://pwn.zyp0422.mom/pwn-%E5%A0%86%E6%BA%A2%E5%87%BA/index.html">
 <meta property="og:site_name" content="zhou">
+<meta property="og:description" content="堆溢出入门0X1–基础知识堆概述堆（Heap）是虚拟地址空间的一块连续的线性区域，提供动态分配的内存，允许程序申请大小未知的内存，它在用户与操作系统之间，作为动态内存管理的中间人。">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://pwn.zyp0422.mom/pwn-%E5%A0%86%E6%BA%A2%E5%87%BA/1.png">
+<meta property="og:image" content="https://pwn.zyp0422.mom/pwn-%E5%A0%86%E6%BA%A2%E5%87%BA/2.png">
+<meta property="og:image" content="https://pwn.zyp0422.mom/pwn-%E5%A0%86%E6%BA%A2%E5%87%BA/3.png">
+<meta property="og:image" content="https://pwn.zyp0422.mom/pwn-%E5%A0%86%E6%BA%A2%E5%87%BA/4.png">
+<meta property="og:image" content="https://pwn.zyp0422.mom/pwn-%E5%A0%86%E6%BA%A2%E5%87%BA/5.png">
+<meta property="og:image" content="https://pwn.zyp0422.mom/pwn-%E5%A0%86%E6%BA%A2%E5%87%BA/6.png">
+<meta property="og:image" content="https://pwn.zyp0422.mom/pwn-%E5%A0%86%E6%BA%A2%E5%87%BA/7.png">
+<meta property="og:image" content="https://pwn.zyp0422.mom/pwn-%E5%A0%86%E6%BA%A2%E5%87%BA/8.png">
+<meta property="og:image" content="https://pwn.zyp0422.mom/pwn-%E5%A0%86%E6%BA%A2%E5%87%BA/9.png">
+<meta property="og:image" content="https://pwn.zyp0422.mom/pwn-%E5%A0%86%E6%BA%A2%E5%87%BA/10.png">
+<meta property="og:image" content="https://pwn.zyp0422.mom/pwn-%E5%A0%86%E6%BA%A2%E5%87%BA/11.png">
+<meta property="og:image" content="https://pwn.zyp0422.mom/pwn-%E5%A0%86%E6%BA%A2%E5%87%BA/12.png">
+<meta property="og:image" content="https://pwn.zyp0422.mom/pwn-%E5%A0%86%E6%BA%A2%E5%87%BA/13.png">
+<meta property="og:image" content="https://pwn.zyp0422.mom/pwn-%E5%A0%86%E6%BA%A2%E5%87%BA/14.png">
+<meta property="og:image" content="https://pwn.zyp0422.mom/pwn-%E5%A0%86%E6%BA%A2%E5%87%BA/15.png">
 <meta property="article:published_time" content="2024-09-28T04:27:08.000Z">
-<meta property="article:modified_time" content="2024-09-28T06:33:22.048Z">
+<meta property="article:modified_time" content="2024-09-28T15:41:52.204Z">
 <meta property="article:author" content="zhoupeng">
 <meta property="article:tag" content="pwn">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://pwn.zyp0422.mom/pwn-%E5%A0%86%E6%BA%A2%E5%87%BA/1.png">
   
     <link rel="alternative" href="/atom.xml" title="zhou" type="application/atom+xml">
   
@@ -99,7 +117,7 @@
 			</ul>
 		</nav>
                                 <nav>
-    			总文章数 8
+    			总文章数 9
 		</nav>
 		<nav class="header-smart-menu">
 			
@@ -120,7 +138,7 @@
 			<div class="social">
 				
 					
-						<a class="github" href="https://github.com/zhouypeng/zhouypeng.github.io" 
+						<a class="github" href="https://github.com/zhouypeng/pwn.github.io" 
 												title="GitHub" target="_blank"><i class="icon-github"></i></a>
 					
 				
@@ -289,7 +307,7 @@
 					
 						
 						<a class="github" target="_blank" 
-							href="https://github.com/zhouypeng/zhouypeng.github.io" title="GitHub"><i class="icon-github"></i></a>
+							href="https://github.com/zhouypeng/pwn.github.io" title="GitHub"><i class="icon-github"></i></a>
 						
 					
 						
@@ -362,7 +380,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">0字</span>
+      <span class="post-count">3.1k字</span>
     </span>
   </span>
 
@@ -371,7 +389,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">1分</span>
+      <span class="post-count">11分</span>
     </span>
   </span>
 </div>
@@ -384,7 +402,140 @@
  
 
 	
-		
+		<h3 id="堆溢出入门0X1–基础知识"><a href="#堆溢出入门0X1–基础知识" class="headerlink" title="堆溢出入门0X1–基础知识"></a>堆溢出入门0X1–基础知识</h3><h4 id="堆概述"><a href="#堆概述" class="headerlink" title="堆概述"></a>堆概述</h4><p>堆（Heap）是虚拟地址空间的一块连续的线性区域，提供动态分配的内存，允许程序申请大小未知的内存，它在用户与操作系统之间，作为动态内存管理的中间人。<span id="more"></span>同时堆响应用户的申请内存请求，向操作系统申请内存，然后将其返回给用户程序，管理用户所释放的内存，并且合适的时候给操作系统。</p>
+<p>举个例子：图书馆与书籍</p>
+<ul>
+<li><strong>图书馆（堆）</strong>：存放了许多书籍（内存块）。读者（程序）可以随时申请借阅书籍，也可以归还不再需要的书籍</li>
+<li><strong>借书（内存申请）</strong>：当一个读者需要借阅书籍的时候，需要到图书馆申请。图书馆会先查看是否有该书籍，有就将其借给读者，这就类似于程序向堆申请内存，堆会检查可用内存并返回给程序</li>
+<li><strong>归还书籍（释放内存）</strong>：当读者读完借阅书籍后，会将其归还给图书馆。图书馆会将该书籍重新返回书架上，表示这本书籍现在可以再次解出，这就类似于程序释放不再使用的内存，堆会将其标记为可用</li>
+<li><strong>书籍的管理（内存管理）</strong>：图书馆需要管理书籍的借阅和归还，确保每一本书都在合适的地方，以便其他读者可以找到它，这就类似于堆需要管理内存的分配与释放，确保没有内存泄露和冲突</li>
+</ul>
+<h4 id="堆的申请"><a href="#堆的申请" class="headerlink" title="堆的申请"></a>堆的申请</h4><p>通过前面的的概述和比喻应该对堆的申请有了一定的理解，在堆的申请中我们一般用malloc函数进行申请使用</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> *ptr = <span class="built_in">malloc</span>(<span class="number">0x10</span>);</span><br></pre></td></tr></table></figure>
+
+<p>上面代码就相当于申请了一个堆，具体操作如下：</p>
+<ul>
+<li>系统会调用一些函数在内存中开辟一大片空间（称为堆）作为堆的分配使用空间</li>
+<li>malloc函数再从这一大片堆分配的使用空间中再分配出0x10大小的空间，将指向该空间的地址分配给ptr（余下的空间就称为topchunk），topchunk是堆中当前可用的最大连续内存块，这个内存块可能会被用来处理后续的malloc请求（内存请求）</li>
+</ul>
+<p><img src="/pwn-%E5%A0%86%E6%BA%A2%E5%87%BA/1.png"></p>
+<p>通过gdb调试来看一下</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#include</span> &lt;<span class="selector-tag">stdio</span><span class="selector-class">.h</span>&gt;</span><br><span class="line"><span class="selector-id">#include</span> &lt;<span class="selector-tag">stdlib</span><span class="selector-class">.h</span>&gt;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">int</span> <span class="selector-tag">main</span>()&#123;</span><br><span class="line"></span><br><span class="line">        <span class="selector-tag">void</span> *<span class="selector-tag">ptr</span> = <span class="selector-tag">malloc</span>(<span class="number">0</span>x10);</span><br><span class="line"></span><br><span class="line">        <span class="selector-tag">void</span> *<span class="selector-tag">ptr1</span> = <span class="selector-tag">malloc</span>(<span class="number">0</span>x90);</span><br><span class="line"></span><br><span class="line">        <span class="selector-tag">void</span> *<span class="selector-tag">ptr2</span> = <span class="selector-tag">malloc</span>(<span class="number">0</span>x800);</span><br><span class="line"></span><br><span class="line">        <span class="selector-tag">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">gcc</span> <span class="selector-tag">example</span><span class="selector-class">.c</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">gdb</span> <span class="selector-tag">a</span><span class="selector-class">.out</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="/pwn-%E5%A0%86%E6%BA%A2%E5%87%BA/2.png"></p>
+<p><img src="/pwn-%E5%A0%86%E6%BA%A2%E5%87%BA/3.png"></p>
+<p>可以看到在还没有进入malloc函数的时候，查看虚拟内存映射是不会看到堆（heap）空间的</p>
+<p>继续运行程序到malloc，再次查看虚拟内存映射会发现系统分配了一个堆空间（0x21000）给我们</p>
+<p><img src="/pwn-%E5%A0%86%E6%BA%A2%E5%87%BA/4.png"></p>
+<p>这是查看一下堆空间</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">heap</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="/pwn-%E5%A0%86%E6%BA%A2%E5%87%BA/5.png"></p>
+<p>可以看到分配完成后的剩余内存块为Top chunk</p>
+<h4 id="堆的数据结构-chunk"><a href="#堆的数据结构-chunk" class="headerlink" title="堆的数据结构-chunk"></a>堆的数据结构-chunk</h4><p><strong>malloc_chunk</strong>：malloc分配的内存作为一个chunk，这块内存在ptmalloc中用malloc_chunk结构体表示，当程序申请的chunk被free时，会被加入相应的空闲管理列表</p>
+<p>还是以图书馆举个例子</p>
+<ul>
+<li><p><strong>申请书籍（malloc）</strong>：图书馆的书架上又很多本书，此时读者需要借一本特定的书籍（malloc(0x50)）。图书管理员会检查书架上的书，找到一本合适的书籍（可用的chunk）并借阅给读者</p>
+<ul>
+<li><strong>书架的状态</strong>：书架上的书籍数量并没有发生改变，不过读者借阅了一本书后，该位置的书籍就不再是空闲的状态，只有当书籍处于未被借阅（空闲的chunk）时才能供读者借阅</li>
+</ul>
+</li>
+<li><p><strong>再次申请书籍</strong>：读者再借阅一本书籍（malloc(0x30)），于是再次向图书管理员请求。图书馆员会找到另一本合适的书借给读者</p>
+<ul>
+<li><strong>书架的状态</strong>：书的数量还是没有减少，不过此时又多了一本书不处于空闲状态</li>
+</ul>
+</li>
+<li><p><strong>归还书籍（free）</strong>：当读者归还一本书时，书架上就会将刚才不空闲的位置重新变回空闲状态，此时书架上的书籍数量还是没有减少，同理归还第二本时，对应的就会变回空闲状态</p>
+</li>
+</ul>
+<p>总的来说，在内存管理中，malloc和free的调用就像是借书和还书，管理着内存的分配和释放。</p>
+<p><strong>chunk在被使用时和空闲时是存在两种不同的状态</strong></p>
+<h5 id="chunk结构体（空闲chunk）"><a href="#chunk结构体（空闲chunk）" class="headerlink" title="chunk结构体（空闲chunk）"></a>chunk结构体（空闲chunk）</h5><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">+<span class="selector-tag">---------------</span>+</span><br><span class="line">| <span class="selector-tag">prev_size</span>     |  <span class="comment">// 如果前一个 chunk 为空闲则有效</span></span><br><span class="line">+<span class="selector-tag">---------------</span>+</span><br><span class="line">| <span class="selector-tag">size</span>          |  <span class="comment">// 记录当前 chunk 的大小和状态</span></span><br><span class="line">+<span class="selector-tag">---------------</span>+</span><br><span class="line">| <span class="selector-tag">fd</span>            |  <span class="comment">// 指向空闲链表中下一个空闲 chunk</span></span><br><span class="line">+<span class="selector-tag">---------------</span>+</span><br><span class="line">| <span class="selector-tag">bk</span>            |  <span class="comment">// 指向空闲链表中上一个空闲 chunk</span></span><br><span class="line">+<span class="selector-tag">---------------</span>+</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>prev_size</strong>：如果前一个chunk是空闲的，该域表示前一个chunk的大小，如果前一个chunk不空闲，则该域无意义</li>
+<li><strong>size</strong>：当前chunk的大小，并且记录了当前chunk和前一个chunk的一些属性（二进制后三位）</li>
+<li><strong>FD</strong>：记录了下一个被free的chunk</li>
+<li><strong>BK</strong>：记录了上一个被free的chunk（基于当前chunk结构）</li>
+<li>fd_nextsize和bk_nextsize，largebin使用，记录了上&#x2F;下一个被free chunk的size;</li>
+</ul>
+<p><img src="/pwn-%E5%A0%86%E6%BA%A2%E5%87%BA/6.png"></p>
+<h5 id="已使用的chunk（In-Use-Chunk）"><a href="#已使用的chunk（In-Use-Chunk）" class="headerlink" title="已使用的chunk（In-Use Chunk）"></a>已使用的chunk（In-Use Chunk）</h5><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">+<span class="selector-tag">---------------</span>+</span><br><span class="line">| <span class="selector-tag">prev_size</span>     |  <span class="comment">// 仅在前一个 chunk 为空闲时有效</span></span><br><span class="line">+<span class="selector-tag">---------------</span>+</span><br><span class="line">| <span class="selector-tag">size</span>   <span class="selector-tag">A</span>  <span class="selector-tag">M</span>  <span class="selector-tag">P</span>|  <span class="comment">// 记录当前 chunk 的大小和状态</span></span><br><span class="line">+<span class="selector-tag">---------------</span>+</span><br><span class="line">| 用户数据区      |  <span class="comment">// 分配给用户的数据</span></span><br><span class="line">+<span class="selector-tag">---------------</span>+</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>数据区</strong>：已使用的chunk的数据区是用户可以使用的区域，程序可以读写该区域的内容</li>
+</ul>
+<p>在已使用chunk结构中出现了上个标志位，A、M、P，这里我们需要了解P标志位的作用</p>
+<p><strong>PREV_INUSE</strong>：记录前一个chunk块是否被分配</p>
+<h5 id="多出三个标志位的原因"><a href="#多出三个标志位的原因" class="headerlink" title="多出三个标志位的原因"></a>多出三个标志位的原因</h5><ul>
+<li><strong>地址的对齐</strong>：堆上的内存分配通常要求对齐到8字节或者16字节，这就意味着size字段中的最低三位实际上在表示内存大小时未被使用；简单来说，分配的内存块大小总是8的倍数，以此size段最低三位没有被实际使用</li>
+<li><strong>利用最低几位存储标志位</strong>：为了避免浪费这几位未被使用的空间，内存管理器将它们用来存储标志位，例前一个chunk是否正在被使用，当前chunk是否通过mmap分配等。</li>
+</ul>
+<h5 id="chunk复用技术"><a href="#chunk复用技术" class="headerlink" title="chunk复用技术"></a>chunk复用技术</h5><ul>
+<li>如果前一个邻接chunk块空闲，那么当前chunk块结构体的prev_size字段记录的就是前一个邻接chunk块的大小。这就是由当前chunk指针获得前一个空闲chunk地址的依据</li>
+<li>如果前一个邻接chunk块在使用中，则当前chunk的prev_size空间被前一个chunk借用，其中的值是前一个chunk的内存内容，对当前chunk没有任何意义</li>
+</ul>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">当前<span class="selector-tag">chunk</span>地址 <span class="selector-tag">-</span> <span class="selector-tag">prev_size</span> = 前一个<span class="selector-tag">chunk</span>地址</span><br></pre></td></tr></table></figure>
+
+<h4 id="堆的释放（free）"><a href="#堆的释放（free）" class="headerlink" title="堆的释放（free）"></a>堆的释放（free）</h4><p>堆的释放一般用的是free函数去实现，free后chunk会在bins中</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="type">void</span> *ptr = <span class="built_in">malloc</span>(<span class="number">0x10</span>);</span><br><span class="line"></span><br><span class="line">        <span class="built_in">free</span>(ptr);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>通过gdb来演示</p>
+<p><img src="/pwn-%E5%A0%86%E6%BA%A2%E5%87%BA/7.png"></p>
+<p>此时已经通过malloc分配给了ptr一些内存空间，而且未使用free</p>
+<p><img src="/pwn-%E5%A0%86%E6%BA%A2%E5%87%BA/8.png"></p>
+<p>在使用free释放堆后，通过heap查看会发Free chunk</p>
+<p><img src="/pwn-%E5%A0%86%E6%BA%A2%E5%87%BA/9.png"></p>
+<h4 id="堆释放后的管理"><a href="#堆释放后的管理" class="headerlink" title="堆释放后的管理"></a>堆释放后的管理</h4><p>堆释放后会被添加到相应的bins中进行管理，这里需要了解一下malloc_state</p>
+<h5 id="malloc-state"><a href="#malloc-state" class="headerlink" title="malloc_state"></a>malloc_state</h5><p><strong>malloc_state</strong>：是用来跟踪和管理特定堆区域的结构体，它保存了堆的状态信息，包括空闲chunk列表、已分配内存的统计信息以及管理bins（用于存放空闲内存块）的数据。</p>
+<h6 id="malloc-state的作用"><a href="#malloc-state的作用" class="headerlink" title="malloc_state的作用"></a>malloc_state的作用</h6><ul>
+<li>管理不同大小的bins，从而管理空闲的内存块</li>
+<li>跟踪当前堆的使用情况，如堆顶（top chunk）、已经分配的内存总量、空闲块等</li>
+<li>支持多线程和多区域堆管理，每个线程可能有自己的独立堆区域</li>
+</ul>
+<h6 id="malloc-state的结构"><a href="#malloc-state的结构" class="headerlink" title="malloc_state的结构"></a>malloc_state的结构</h6><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">struct</span> <span class="selector-tag">malloc_state</span> &#123;</span><br><span class="line">  <span class="comment">/* 管理fastbins, smallbins, largebins的相关信息 */</span></span><br><span class="line">  <span class="selector-tag">binmap_t</span> <span class="selector-tag">binmap</span>;         <span class="comment">// 位图，用于跟踪哪些 bins 存在空闲块</span></span><br><span class="line">  <span class="selector-tag">mchunkptr</span> <span class="selector-tag">fastbinsY</span><span class="selector-attr">[NFASTBINS]</span>;   <span class="comment">// 存储小于64字节的fast bins</span></span><br><span class="line">  <span class="selector-tag">mchunkptr</span> <span class="selector-tag">smallbins</span><span class="selector-attr">[NSMALLBINS * 2]</span>;  <span class="comment">// small bins列表，管理小块空闲chunk</span></span><br><span class="line">  <span class="selector-tag">mchunkptr</span> <span class="selector-tag">largebins</span><span class="selector-attr">[NLARGEBINS * 2]</span>;  <span class="comment">// large bins列表，管理大块空闲chunk</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">/* 管理当前堆的使用情况 */</span></span><br><span class="line">  <span class="selector-tag">mchunkptr</span> <span class="selector-tag">top</span>;           <span class="comment">// 当前堆顶的chunk</span></span><br><span class="line">  <span class="selector-tag">mchunkptr</span> <span class="selector-tag">last_remainder</span>; <span class="comment">// 上次分配时剩余的 chunk</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">/* 管理内存分配时的统计数据 */</span></span><br><span class="line">  <span class="selector-tag">size_t</span> <span class="selector-tag">system_mem</span>;       <span class="comment">// 系统分配给该堆的总内存大小</span></span><br><span class="line">  <span class="selector-tag">size_t</span> <span class="selector-tag">max_system_mem</span>;   <span class="comment">// 系统给该堆分配的最大内存</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">// 其他线程相关的锁和同步信息</span></span><br><span class="line">  <span class="selector-tag">INTERNAL_SIZE_T</span> <span class="selector-tag">trim_threshold</span>; <span class="comment">// 内存裁剪的阈值</span></span><br><span class="line">  <span class="selector-tag">INTERNAL_SIZE_T</span> <span class="selector-tag">mmap_threshold</span>; <span class="comment">// mmap 分配的阈值</span></span><br><span class="line">  ...</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h5 id="分箱式管理"><a href="#分箱式管理" class="headerlink" title="分箱式管理"></a>分箱式管理</h5><p>对于空闲的chunk，ptmalloc采用分箱式内存管理方式，根据空闲chunk大小和处于的状态将其放入四个不同的bins中，这里的分箱指的是bins</p>
+<h6 id="细节"><a href="#细节" class="headerlink" title="细节"></a>细节</h6><ul>
+<li><strong>Fast Bins</strong>：用于存放小于或者等于<strong>64字节</strong>的内存块。此类内存块的分配和释放速度非常块，因此不涉及到合并操作，直接操作双向链表</li>
+<li><strong>Tcache Bins</strong>：在<strong>glibc 2.26</strong>后引入的，用于缓存最近释放的内存块。针对小块（<strong>小于或等于512字节</strong>）内存，tcache提供了更块的分配速度，当内存被释放时优先放入tcache中，而不是直接返回global bins</li>
+<li><strong>Small Bins</strong>：用于管理<strong>大于64字节，小于512字节</strong>的内存块。每个大小类别有相应的链表进行管理，不过在glibc 2.26后，小于等于512字节内存块一般被释放后都是在<strong>tcacghe</strong>中了</li>
+<li><strong>Large Bins</strong>：管理<strong>大于512字节</strong>的内存块。</li>
+<li><strong>Unsorted Bin</strong>：用于存放未分类的内存块，当某个chunk被释放但不符合fastbin或者tcache大小时，会存放在未分类的bin中，等待后续的分配和整理</li>
+</ul>
+<h4 id="Bins"><a href="#Bins" class="headerlink" title="Bins"></a>Bins</h4><p>Bins是用来管理空闲chunk的数据结构。不同大小的空闲chunk会被分类存储到不同的bins中，以便在程序申请新的内存时，快速找到合适的空闲块</p>
+<p>bins的作用是将释放后的chunk按照大小分类存放，从而加快内存分配和释放的速度</p>
+<h5 id="bins分类"><a href="#bins分类" class="headerlink" title="bins分类"></a>bins分类</h5><ul>
+<li>Fast Bins</li>
+<li>Small Bins</li>
+<li>Large Bins</li>
+<li>Unsorted Bins</li>
+</ul>
+<p><img src="/pwn-%E5%A0%86%E6%BA%A2%E5%87%BA/10.png"></p>
+<p>fastbinsY拥有10个（NFASTBINS）个元素的数组，用于存放每个fast chunk链表的头指针，所以fast bins最多包含10个fast chunk的单向链表</p>
+<p>bins用于存储unstore bin，small bins和large bins的chunk链表头，small bins 一共62个，large bins一共63个，加起来一共125个bin</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#include</span> &lt;<span class="selector-tag">stdio</span><span class="selector-class">.h</span>&gt;</span><br><span class="line"><span class="selector-id">#include</span> &lt;<span class="selector-tag">stdlib</span><span class="selector-class">.h</span>&gt;</span><br><span class="line"><span class="selector-tag">int</span> <span class="selector-tag">main</span>(void)&#123;</span><br><span class="line"></span><br><span class="line">        <span class="selector-tag">void</span> *<span class="selector-tag">ptr1</span>,*<span class="selector-tag">ptr2</span>,*<span class="selector-tag">ptr3</span>,*<span class="selector-tag">ptr4</span>;</span><br><span class="line">        <span class="selector-tag">ptr1</span> = <span class="selector-tag">malloc</span>(<span class="number">0</span>x10);</span><br><span class="line">        <span class="selector-tag">ptr2</span> = <span class="selector-tag">malloc</span>(<span class="number">0</span>x10);</span><br><span class="line">        <span class="selector-tag">ptr3</span> = <span class="selector-tag">malloc</span>(<span class="number">0</span>x10);</span><br><span class="line">        <span class="selector-tag">ptr4</span> = <span class="selector-tag">malloc</span>(<span class="number">0</span>x10);</span><br><span class="line">        <span class="selector-tag">free</span>(ptr1);</span><br><span class="line">        <span class="selector-tag">free</span>(ptr2);</span><br><span class="line">        <span class="selector-tag">free</span>(ptr3);</span><br><span class="line">        <span class="selector-tag">free</span>(ptr4);</span><br><span class="line">        <span class="selector-tag">malloc</span>(<span class="number">0</span>x150);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/pwn-%E5%A0%86%E6%BA%A2%E5%87%BA/11.png"></p>
+<p>图中释放后小于64字节的内存被存放在<strong>tcachebins</strong>中，这是在<strong>glibc 2.26</strong>中引入的，目的就是减少内存分配的时间和复杂性，在glibc 2.26后允许将更大的内存块存放在<strong>tcachebins</strong>，小于等于512字节的内存一般被释放后都可以存放在<strong>tcachebins</strong>中，而超过512字节的内存块被释放后一般直接管理在<strong>fastbins</strong>、smallbins或<strong>largebins</strong>中</p>
+<p>例如下面gdb调试</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#include</span> &lt;<span class="selector-tag">stdio</span><span class="selector-class">.h</span>&gt;</span><br><span class="line"><span class="selector-id">#include</span> &lt;<span class="selector-tag">stdlib</span><span class="selector-class">.h</span>&gt;</span><br><span class="line"><span class="selector-tag">int</span> <span class="selector-tag">main</span>(void)&#123;</span><br><span class="line"></span><br><span class="line">        <span class="selector-tag">void</span> *<span class="selector-tag">ptr1</span>,*<span class="selector-tag">ptr2</span>,*<span class="selector-tag">ptr3</span>,*<span class="selector-tag">ptr4</span>;</span><br><span class="line">        <span class="selector-tag">ptr1</span> = <span class="selector-tag">malloc</span>(<span class="number">0</span>x440);</span><br><span class="line">        <span class="selector-tag">ptr2</span> = <span class="selector-tag">malloc</span>(<span class="number">0</span>x440);</span><br><span class="line">        <span class="selector-tag">ptr3</span> = <span class="selector-tag">malloc</span>(<span class="number">0</span>x440);</span><br><span class="line">        <span class="selector-tag">ptr4</span> = <span class="selector-tag">malloc</span>(<span class="number">0</span>x440);</span><br><span class="line">        <span class="selector-tag">free</span>(ptr1);</span><br><span class="line">        <span class="selector-tag">free</span>(ptr2);</span><br><span class="line">        <span class="selector-tag">free</span>(ptr3);</span><br><span class="line">        <span class="selector-tag">free</span>(ptr4);</span><br><span class="line">        <span class="selector-tag">malloc</span>(<span class="number">0</span>x150);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>可以先猜测一下0x440（1088字节）超过了512字节，在释放后会被放入unstortedbin中</p>
+<p><img src="/pwn-%E5%A0%86%E6%BA%A2%E5%87%BA/12.png"></p>
+<p><img src="/pwn-%E5%A0%86%E6%BA%A2%E5%87%BA/13.png"></p>
+<p>跟我们猜测是一样的，但是会发现在free ptr4后，内存块会被系统回收回去，这是为什么呢</p>
+<p><img src="/pwn-%E5%A0%86%E6%BA%A2%E5%87%BA/14.png"></p>
+<p><img src="/pwn-%E5%A0%86%E6%BA%A2%E5%87%BA/15.png"></p>
+<h5 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h5><ul>
+<li><strong>合并内存块</strong>：如果ptr1、ptr2、ptr3和ptr4之前分配的内存块是相邻的，并且它们释放使得内存块相邻，那么内存管理器会合并这些内存块减少内存碎片，合并后的内存块可能会成为一个更大的空闲块，可供后续malloc调用时分配更大的空间</li>
+<li><strong>满足malloc请求</strong>：调用malloc(0x150)时，如果堆中的可用内存块能够满足该请求，系统会从unsorted bins或者large  bins中找到合适的块进行分配，由于0x150的请求小于之前释放的内存块，内存管理器可以从已经释放的块中找到合适的空间进行满足</li>
+</ul>
+
 	
 
 
@@ -555,7 +706,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A0%86%E6%BA%A2%E5%87%BA%E5%85%A5%E9%97%A80X1%E2%80%93%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86"><span class="toc-number">1.</span> <span class="toc-text">堆溢出入门0X1–基础知识</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A0%86%E6%A6%82%E8%BF%B0"><span class="toc-number">1.1.</span> <span class="toc-text">堆概述</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A0%86%E7%9A%84%E7%94%B3%E8%AF%B7"><span class="toc-number">1.2.</span> <span class="toc-text">堆的申请</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A0%86%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-chunk"><span class="toc-number">1.3.</span> <span class="toc-text">堆的数据结构-chunk</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#chunk%E7%BB%93%E6%9E%84%E4%BD%93%EF%BC%88%E7%A9%BA%E9%97%B2chunk%EF%BC%89"><span class="toc-number">1.3.1.</span> <span class="toc-text">chunk结构体（空闲chunk）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%B7%B2%E4%BD%BF%E7%94%A8%E7%9A%84chunk%EF%BC%88In-Use-Chunk%EF%BC%89"><span class="toc-number">1.3.2.</span> <span class="toc-text">已使用的chunk（In-Use Chunk）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%A4%9A%E5%87%BA%E4%B8%89%E4%B8%AA%E6%A0%87%E5%BF%97%E4%BD%8D%E7%9A%84%E5%8E%9F%E5%9B%A0"><span class="toc-number">1.3.3.</span> <span class="toc-text">多出三个标志位的原因</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#chunk%E5%A4%8D%E7%94%A8%E6%8A%80%E6%9C%AF"><span class="toc-number">1.3.4.</span> <span class="toc-text">chunk复用技术</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A0%86%E7%9A%84%E9%87%8A%E6%94%BE%EF%BC%88free%EF%BC%89"><span class="toc-number">1.4.</span> <span class="toc-text">堆的释放（free）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A0%86%E9%87%8A%E6%94%BE%E5%90%8E%E7%9A%84%E7%AE%A1%E7%90%86"><span class="toc-number">1.5.</span> <span class="toc-text">堆释放后的管理</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#malloc-state"><span class="toc-number">1.5.1.</span> <span class="toc-text">malloc_state</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#malloc-state%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="toc-number">1.5.1.1.</span> <span class="toc-text">malloc_state的作用</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#malloc-state%E7%9A%84%E7%BB%93%E6%9E%84"><span class="toc-number">1.5.1.2.</span> <span class="toc-text">malloc_state的结构</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%88%86%E7%AE%B1%E5%BC%8F%E7%AE%A1%E7%90%86"><span class="toc-number">1.5.2.</span> <span class="toc-text">分箱式管理</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E7%BB%86%E8%8A%82"><span class="toc-number">1.5.2.1.</span> <span class="toc-text">细节</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Bins"><span class="toc-number">1.6.</span> <span class="toc-text">Bins</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#bins%E5%88%86%E7%B1%BB"><span class="toc-number">1.6.1.</span> <span class="toc-text">bins分类</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%8E%9F%E5%9B%A0"><span class="toc-number">1.6.2.</span> <span class="toc-text">原因</span></a></li></ol></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -764,7 +915,7 @@
         <ul class="search-ul">
           
             <li class="search-li">
-              <a href="https://github.com/zhouypeng/zhouypeng.github.io" target="_blank" 
+              <a href="https://github.com/zhouypeng/pwn.github.io" target="_blank" 
                 class="search-title" >
                 
                   <i class="icon-link icon"></i>
@@ -802,7 +953,7 @@
     	<section class="tools-section tools-section-me" q-show="aboutme">
         
           
-  	  		<div class="aboutme-wrap" id="aboutme">介绍：<br>技术爱好者<br><br>联系QQ:1956824531<br><br>欢迎观看，期待你的留言<br>谢谢大家</div>
+  	  		<div class="aboutme-wrap" id="aboutme">介绍：<br>此博客主要记录pwn学习<br><br>欢迎观看，期待你的留言<br>谢谢大家</div>
   	  	
     	</section>
     

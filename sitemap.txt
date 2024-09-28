@@ -1,6 +1,7 @@
 https://pwn.zyp0422.mom/pwn-%E5%A0%86%E6%BA%A2%E5%87%BA/
 https://pwn.zyp0422.mom/pwn-%E6%A0%88%E8%BF%81%E7%A7%BB/
 https://pwn.zyp0422.mom/pwn-%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%AD%97%E7%AC%A6%E4%B8%B2/
+https://pwn.zyp0422.mom/pwn-gdb-pwndbg%E5%92%8Cpwngdb%E8%81%94%E5%90%88%E4%BD%BF%E7%94%A8/
 https://pwn.zyp0422.mom/pwn%E6%A0%88%E6%BA%A2%E5%87%BA%E5%85%A5%E9%97%A8%E7%AF%87/
 https://pwn.zyp0422.mom/pwn-ret2csu/
 https://pwn.zyp0422.mom/pwn%E6%A0%88%E6%BA%A2%E5%87%BA-ret2libc/
