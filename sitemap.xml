@@ -575,6 +575,13 @@
   </url>
   
   <url>
+    <loc>https://pwn.github.io/tags/XSS/</loc>
+    <lastmod>2024-09-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://pwn.github.io/tags/%E4%BC%AA%E5%8D%8F%E8%AE%AE/</loc>
     <lastmod>2024-09-28</lastmod>
     <changefreq>weekly</changefreq>
@@ -590,13 +597,6 @@
   
   <url>
     <loc>https://pwn.github.io/tags/%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB/</loc>
-    <lastmod>2024-09-28</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://pwn.github.io/tags/XSS/</loc>
     <lastmod>2024-09-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
