@@ -5,7 +5,7 @@
   
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <link rel="dns-prefetch" href="https://blog.zyp0422.mom">
+  <link rel="dns-prefetch" href="https://pwn.github.io">
   <title>pwn-栈迁移 | zhou</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -13,17 +13,17 @@
   <meta name="description" content="相关指令以及一些栈内容介绍1234567EBP：栈底指针，又称为栈基址EIP：用于存放当前代码段，及下一条被执行指令的地址ESP：栈顶指针，永远指向栈顶leave指令：主要作用是将栈帧指针恢复到调用函数时的状态，实际时mov esp,ebp和pop ebp两个指令的结合，一般过程为恢复栈指针和恢复调用者的栈基址mov esp,ebp：esp在函数执行过程中会移动到栈的不同位置，这一步是将栈顶指针恢">
 <meta property="og:type" content="article">
 <meta property="og:title" content="pwn-栈迁移">
-<meta property="og:url" content="https://blog.zyp0422.mom/pwn-%E6%A0%88%E8%BF%81%E7%A7%BB/index.html">
+<meta property="og:url" content="https://pwn.github.io/pwn-%E6%A0%88%E8%BF%81%E7%A7%BB/index.html">
 <meta property="og:site_name" content="zhou">
 <meta property="og:description" content="相关指令以及一些栈内容介绍1234567EBP：栈底指针，又称为栈基址EIP：用于存放当前代码段，及下一条被执行指令的地址ESP：栈顶指针，永远指向栈顶leave指令：主要作用是将栈帧指针恢复到调用函数时的状态，实际时mov esp,ebp和pop ebp两个指令的结合，一般过程为恢复栈指针和恢复调用者的栈基址mov esp,ebp：esp在函数执行过程中会移动到栈的不同位置，这一步是将栈顶指针恢">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://blog.zyp0422.mom/pwn-%E6%A0%88%E8%BF%81%E7%A7%BB/1.png">
+<meta property="og:image" content="https://pwn.github.io/pwn-%E6%A0%88%E8%BF%81%E7%A7%BB/1.png">
 <meta property="article:published_time" content="2024-09-27T06:26:05.000Z">
 <meta property="article:modified_time" content="2024-09-27T07:10:28.261Z">
 <meta property="article:author" content="zhoupeng">
 <meta property="article:tag" content="pwn">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://blog.zyp0422.mom/pwn-%E6%A0%88%E8%BF%81%E7%A7%BB/1.png">
+<meta name="twitter:image" content="https://pwn.github.io/pwn-%E6%A0%88%E8%BF%81%E7%A7%BB/1.png">
   
     <link rel="alternative" href="/atom.xml" title="zhou" type="application/atom+xml">
   
@@ -103,7 +103,7 @@
 			</ul>
 		</nav>
                                 <nav>
-    			总文章数 52
+    			总文章数 53
 		</nav>
 		<nav class="header-smart-menu">
 			
@@ -451,7 +451,7 @@
         </li>
         <li>
           <strong>本文链接：</strong>
-          <a href="https://blog.zyp0422.mom/pwn-栈迁移/" title="pwn-栈迁移" target="_blank">https://blog.zyp0422.mom/pwn-栈迁移/</a>
+          <a href="https://pwn.github.io/pwn-栈迁移/" title="pwn-栈迁移" target="_blank">https://pwn.github.io/pwn-栈迁移/</a>
         </li>
         
         <li>
@@ -540,7 +540,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-     <!-- <img src="//pan.baidu.com/share/qrcode?url=https://blog.zyp0422.mom/pwn-%E6%A0%88%E8%BF%81%E7%A7%BB/" alt="微信分享二维码"> -->
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=https://pwn.github.io/pwn-%E6%A0%88%E8%BF%81%E7%A7%BB/" alt="微信分享二维码"> -->
     </div>
 </div>
 
@@ -554,6 +554,15 @@
 
 
 <nav id="article-nav">
+  
+    <a href="/pwn-%E5%A0%86%E6%BA%A2%E5%87%BA/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          pwn-堆溢出
+        
+      </div>
+    </a>
   
   
     <a href="/Mr-Robot/" id="article-nav-older" class="article-nav-link-wrap">
@@ -622,7 +631,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2023-2024 <a href="https://blog.zyp0422.mom/" target="_blank">zhoupeng</a>
+    		&copy; 2023-2024 <a href="https://pwn.github.io/" target="_blank">zhoupeng</a>
     	</div>
       	<div class="footer-right">
 			
@@ -745,11 +754,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">hackthebox</a>
+                <a href="javascript:void(0)" class="js-tag color4">web</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">web</a>
+                <a href="javascript:void(0)" class="js-tag color1">hackthebox</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -781,11 +790,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+                <a href="javascript:void(0)" class="js-tag color5">SSTI</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">SSTI</a>
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -805,11 +814,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">reverse</a>
+                <a href="javascript:void(0)" class="js-tag color5">渗透测试</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">渗透测试</a>
+                <a href="javascript:void(0)" class="js-tag color3">reverse</a>
               </li>
              
               <li class="article-tag-list-item">

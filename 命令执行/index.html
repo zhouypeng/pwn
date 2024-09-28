@@ -5,7 +5,7 @@
   
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <link rel="dns-prefetch" href="https://blog.zyp0422.mom">
+  <link rel="dns-prefetch" href="https://pwn.github.io">
   <title>命令执行 | zhou</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -13,34 +13,34 @@
   <meta name="description" content="概念针对代码中没有过滤限制或者限制不全且能够执行用户输入恶意语句">
 <meta property="og:type" content="article">
 <meta property="og:title" content="命令执行">
-<meta property="og:url" content="https://blog.zyp0422.mom/%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C/index.html">
+<meta property="og:url" content="https://pwn.github.io/%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C/index.html">
 <meta property="og:site_name" content="zhou">
 <meta property="og:description" content="概念针对代码中没有过滤限制或者限制不全且能够执行用户输入恶意语句">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://blog.zyp0422.mom/%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C/1.png">
-<meta property="og:image" content="https://blog.zyp0422.mom/%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C/2.png">
-<meta property="og:image" content="https://blog.zyp0422.mom/%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C/3.png">
-<meta property="og:image" content="https://blog.zyp0422.mom/%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C/4.png">
-<meta property="og:image" content="https://blog.zyp0422.mom/%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C/5.png">
-<meta property="og:image" content="https://blog.zyp0422.mom/%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C/6.png">
-<meta property="og:image" content="https://blog.zyp0422.mom/%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C/7.png">
-<meta property="og:image" content="https://blog.zyp0422.mom/%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C/8.png">
-<meta property="og:image" content="https://blog.zyp0422.mom/%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C/9.png">
-<meta property="og:image" content="https://blog.zyp0422.mom/%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C/10.png">
-<meta property="og:image" content="https://blog.zyp0422.mom/%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C/11.png">
-<meta property="og:image" content="https://blog.zyp0422.mom/%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C/12.png">
-<meta property="og:image" content="https://blog.zyp0422.mom/%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C/13.png">
-<meta property="og:image" content="https://blog.zyp0422.mom/%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C/14.png">
-<meta property="og:image" content="https://blog.zyp0422.mom/%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C/15.png">
-<meta property="og:image" content="https://blog.zyp0422.mom/%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C/16.png">
-<meta property="og:image" content="https://blog.zyp0422.mom/%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C/17.png">
+<meta property="og:image" content="https://pwn.github.io/%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C/1.png">
+<meta property="og:image" content="https://pwn.github.io/%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C/2.png">
+<meta property="og:image" content="https://pwn.github.io/%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C/3.png">
+<meta property="og:image" content="https://pwn.github.io/%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C/4.png">
+<meta property="og:image" content="https://pwn.github.io/%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C/5.png">
+<meta property="og:image" content="https://pwn.github.io/%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C/6.png">
+<meta property="og:image" content="https://pwn.github.io/%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C/7.png">
+<meta property="og:image" content="https://pwn.github.io/%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C/8.png">
+<meta property="og:image" content="https://pwn.github.io/%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C/9.png">
+<meta property="og:image" content="https://pwn.github.io/%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C/10.png">
+<meta property="og:image" content="https://pwn.github.io/%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C/11.png">
+<meta property="og:image" content="https://pwn.github.io/%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C/12.png">
+<meta property="og:image" content="https://pwn.github.io/%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C/13.png">
+<meta property="og:image" content="https://pwn.github.io/%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C/14.png">
+<meta property="og:image" content="https://pwn.github.io/%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C/15.png">
+<meta property="og:image" content="https://pwn.github.io/%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C/16.png">
+<meta property="og:image" content="https://pwn.github.io/%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C/17.png">
 <meta property="article:published_time" content="2024-04-02T02:39:30.000Z">
 <meta property="article:modified_time" content="2024-09-02T06:35:44.784Z">
 <meta property="article:author" content="zhoupeng">
 <meta property="article:tag" content="web">
 <meta property="article:tag" content="命令执行">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://blog.zyp0422.mom/%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C/1.png">
+<meta name="twitter:image" content="https://pwn.github.io/%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C/1.png">
   
     <link rel="alternative" href="/atom.xml" title="zhou" type="application/atom+xml">
   
@@ -120,7 +120,7 @@
 			</ul>
 		</nav>
                                 <nav>
-    			总文章数 52
+    			总文章数 53
 		</nav>
 		<nav class="header-smart-menu">
 			
@@ -463,7 +463,7 @@
 <h5 id="exec"><a href="#exec" class="headerlink" title="exec()"></a>exec()</h5><p>不直接返回结果，即不会回显</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="title function_ invoke__">highlight_file</span>(<span class="keyword">__FILE__</span>);</span><br><span class="line"></span><br><span class="line"><span class="variable">$a</span> = <span class="variable">$_POST</span>[<span class="string">&#x27;cmd&#x27;</span>];</span><br><span class="line"></span><br><span class="line"><span class="title function_ invoke__">exec</span>(<span class="variable">$a</span>);</span><br></pre></td></tr></table></figure>
 
-<h6 id="方法一–bp流量监听"><a href="#方法一–bp流量监听" class="headerlink" title="方法一–bp流量监听"></a>方法一–bp流量监听</h6><p>详细见文章<a href="http://blog.zyp0422.mom/%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E6%97%A0%E5%9B%9E%E6%98%BE-BP%E6%B5%81%E9%87%8F%E7%9B%91%E5%90%AC/">命令执行无回显-BP流量监听</a></p>
+<h6 id="方法一–bp流量监听"><a href="#方法一–bp流量监听" class="headerlink" title="方法一–bp流量监听"></a>方法一–bp流量监听</h6><p>详细见文章<a target="_blank" rel="noopener" href="http://blog.zyp0422.mom/%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E6%97%A0%E5%9B%9E%E6%98%BE-BP%E6%B5%81%E9%87%8F%E7%9B%91%E5%90%AC/">命令执行无回显-BP流量监听</a></p>
 <p><img src="/%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C/10.png"></p>
 <h6 id="方法二–重定向到文件"><a href="#方法二–重定向到文件" class="headerlink" title="方法二–重定向到文件"></a>方法二–重定向到文件</h6><p>输出到指定文件</p>
 <figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">cmd</span>=<span class="selector-tag">type</span> <span class="selector-tag">flag</span><span class="selector-class">.txt</span> &gt; <span class="number">1</span><span class="selector-class">.txt</span></span><br></pre></td></tr></table></figure>
@@ -554,7 +554,7 @@
         </li>
         <li>
           <strong>本文链接：</strong>
-          <a href="https://blog.zyp0422.mom/命令执行/" title="命令执行" target="_blank">https://blog.zyp0422.mom/命令执行/</a>
+          <a href="https://pwn.github.io/命令执行/" title="命令执行" target="_blank">https://pwn.github.io/命令执行/</a>
         </li>
         
         <li>
@@ -647,7 +647,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-     <!-- <img src="//pan.baidu.com/share/qrcode?url=https://blog.zyp0422.mom/%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C/" alt="微信分享二维码"> -->
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=https://pwn.github.io/%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C/" alt="微信分享二维码"> -->
     </div>
 </div>
 
@@ -738,7 +738,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2023-2024 <a href="https://blog.zyp0422.mom/" target="_blank">zhoupeng</a>
+    		&copy; 2023-2024 <a href="https://pwn.github.io/" target="_blank">zhoupeng</a>
     	</div>
       	<div class="footer-right">
 			
@@ -861,11 +861,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">hackthebox</a>
+                <a href="javascript:void(0)" class="js-tag color4">web</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">web</a>
+                <a href="javascript:void(0)" class="js-tag color1">hackthebox</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -897,11 +897,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+                <a href="javascript:void(0)" class="js-tag color5">SSTI</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">SSTI</a>
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -921,11 +921,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">reverse</a>
+                <a href="javascript:void(0)" class="js-tag color5">渗透测试</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">渗透测试</a>
+                <a href="javascript:void(0)" class="js-tag color3">reverse</a>
               </li>
              
               <li class="article-tag-list-item">
